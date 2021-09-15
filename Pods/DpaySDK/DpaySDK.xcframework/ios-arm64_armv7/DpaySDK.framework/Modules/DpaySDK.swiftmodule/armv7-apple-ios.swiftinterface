@@ -1,0 +1,49 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DpaySDK
+import Foundation
+import Foundation/*.Bundle*/
+import Swift
+import UIKit
+import WebKit
+@objc @_inheritsConvenienceInitializers public class DCheckoutOptions : ObjectiveC.NSObject {
+  public var themeColor: Swift.String?
+  public var accentColor: Swift.String?
+  public var locale: Swift.String?
+  public var environment: Swift.String?
+  public var accessToken: Swift.String?
+  public var siteName: Swift.String?
+  public var amount: Swift.String?
+  public var currency: Swift.String?
+  public var orderId: Swift.String?
+  public var paymentType: Swift.String?
+  public var customerId: Swift.String?
+  public var customerEmail: Swift.String?
+  public var customerGivenName: Swift.String?
+  public var customerMobile: Swift.String?
+  public var customerAddressLine1: Swift.String?
+  public var customerAddressLine2: Swift.String?
+  public var customerCity: Swift.String?
+  public var customerRegion: Swift.String?
+  public var customerCountry: Swift.String?
+  public var customerPostalCode: Swift.String?
+  public var label: Swift.String?
+  public var receiverName: Swift.String?
+  public var receiverPhone: Swift.String?
+  public var landmark: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers public class DpaySDK : UIKit.UIViewController {
+  public static let getInstance: DpaySDK
+  public func checkout(options: Swift.Dictionary<Swift.String, Any>, listener: DpayCheckoutProtocol)
+  public func checkout(options: DCheckoutOptions, listener: DpayCheckoutProtocol)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public protocol DpayCheckoutProtocol {
+  func onSuccess(transactionResponse: Swift.String)
+  func onError(transactionResponse: Swift.String)
+  func onClose(transactionResponse: Swift.String)
+}

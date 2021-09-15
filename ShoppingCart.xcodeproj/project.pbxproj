@@ -318,14 +318,13 @@
 				C9A12B0619706E140078ACF1 /* Resources */,
 				FEFA9A30D0300A4495AE44BB /* [CP] Embed Pods Frameworks */,
 				7403295B26E9A5AD00EF653C /* Embed Frameworks */,
+				B774273090AB88DB4CB44D46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ShoppingCart;
-			packageProductDependencies = (
-			);
 			productName = ShoppingCart;
 			productReference = C9A12B0819706E140078ACF1 /* ShoppingCart.app */;
 			productType = "com.apple.product-type.application";
@@ -431,6 +430,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B774273090AB88DB4CB44D46 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/DpaySDK/DpaySDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DpaySDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FEFA9A30D0300A4495AE44BB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,12 +456,18 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
+				"${BUILT_PRODUCTS_DIR}/SnowplowTracker/SnowplowTracker.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/DpaySDK/DpaySDK.framework/DpaySDK",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnowplowTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DpaySDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

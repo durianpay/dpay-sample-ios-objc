@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @import DpaySDK;
-//#import "DpaySDK-Swift.h"
 
 @interface BLCheckoutViewController : UIViewController
 
