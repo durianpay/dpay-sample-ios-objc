@@ -48,6 +48,18 @@
     [options setCustomerGivenName:@"Joe Doe"];
     [options setAccessToken:access_token];
     [options setOrderId:order_id];
+//    [options setPaymentType:@"installment"];
+    
+    [options setLabel:@"Home"];
+    [options setLandmark:@"Twin Towers"];
+    [options setCustomerCity:@"Chennai"];
+    [options setCustomerMobile:@"8239482343"];
+    [options setCustomerRegion:@"Asia"];
+    [options setCustomerCountry:@"India"];
+    [options setCustomerPostalCode:@"517214"];
+    [options setCustomerAddressLine1:@"Ramurthy Nagar, Kumbakonam"];
+    [options setReceiverName:@"Dheeraj"];
+    [options setReceiverPhone:@"8234983424"];
 }
 
 -(NSDictionary *)getAccessToken {
@@ -76,7 +88,6 @@
         NSURLResponse *response = [[NSURLResponse alloc] init];
         __block NSError *error1 = [[NSError alloc] init];
 
-        //use async way to connect network
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse: &response error:&error1];
         if ([data length]>0 && error == nil) {
             resultsDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error1];
@@ -92,16 +103,16 @@
 }
 
 
+- (void)onSuccessWithTransactionResponse:(DPaymentSuccess * _Nonnull)transactionResponse {
+    NSLog(@"success %@", transactionResponse.response.paymentId);
+}
+
+- (void)onErrorWithTransactionResponse:(DPaymentFailed * _Nonnull)transactionResponse {
+    NSLog(@"failed %@", transactionResponse.response.paymentId);
+}
+
 - (void)onCloseWithTransactionResponse:(NSString * _Nonnull)transactionResponse {
-    printf("%s", transactionResponse);
-}
-
-- (void)onErrorWithTransactionResponse:(NSString * _Nonnull)transactionResponse {
-    printf("%s", transactionResponse);
-}
-
-- (void)onSuccessWithTransactionResponse:(NSString * _Nonnull)transactionResponse {
-    printf("%s", transactionResponse);
+    NSLog(@"close %@", transactionResponse);
 }
 
 @end
